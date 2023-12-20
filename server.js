@@ -9,7 +9,6 @@ app.set('view engine', 'ejs');
 
 // Route pour l'écran principal
 app.get("/", async function (req, res) {
-  try {
       const randomTask = await Task.getRandom(); // Récupérer un mot aléatoire
 
       if (randomTask) {
@@ -19,10 +18,6 @@ app.get("/", async function (req, res) {
           // Si aucun mot n'est trouvé, redirigez vers /results
           res.redirect('/results');
       }
-  } catch (error) {
-      console.error("Erreur : ", error);
-      res.status(500).send("Erreur interne du serveur");
-  }
 });
 
 // Route pour traiter la réponse de l'utilisateur

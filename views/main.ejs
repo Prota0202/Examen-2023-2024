@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test yourself</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Test yourself</h1>
+ 
+    <!-- Afficher un mot aléatoire pour la traduction -->
+    <% if (randomTask) { %>
+        <h2>Mot pour traduction : <%= randomTask.word %></h2>
+        <form action="/" method="post">
+            <input type="hidden" name="taskId" value="<%= randomTask.id %>">
+            <input type="text" name="userAnswer" placeholder="Entrez votre traduction" required>
+            <input type="submit" value="Soumettre">
+        </form>
+    <% } else { %>
+        <p>Plus de mots à traduire. <a href="/results">finished ? Click here to continue</a></p>
+    <% } %>
+</body>
+</html>

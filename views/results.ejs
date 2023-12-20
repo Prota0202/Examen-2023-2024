@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vos Résultats</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Vos Résultats</h1>
+
+    <h2>Traductions effectuées :</h2>
+    <ul>
+        <% userResponses.forEach(function(response) { %>
+            <li><%= response.word %> : <%= response.userAnswer %> (<%= response.isCorrect ? "Correct" : "Incorrect" %>)</li>
+        <% }); %>
+    </ul>
+
+    <p>Pourcentage de réussite : <%= successPercentage %>%</p>
+
+    <h2>Ajouter un nouveau mot :</h2>
+    <form action="/addWord" method="post">
+        <input type="text" name="word" placeholder="Mot" required>
+        <input type="text" name="correctAnswer" placeholder="Traduction correcte" required>
+        <input type="submit" value="Ajouter">
+    </form>
+</body>
+</html>
